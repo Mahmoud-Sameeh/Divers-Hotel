@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Divers Hotel", "Divers Hotel\Divers Hotel.csproj", "{1D17A873-5CBD-4EE3-839A-9F9E7F96B285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{E814DB5B-25C9-4C35-9BA0-5D2045AF7033}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D17A873-5CBD-4EE3-839A-9F9E7F96B285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D17A873-5CBD-4EE3-839A-9F9E7F96B285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D17A873-5CBD-4EE3-839A-9F9E7F96B285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D17A873-5CBD-4EE3-839A-9F9E7F96B285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E814DB5B-25C9-4C35-9BA0-5D2045AF7033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E814DB5B-25C9-4C35-9BA0-5D2045AF7033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E814DB5B-25C9-4C35-9BA0-5D2045AF7033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E814DB5B-25C9-4C35-9BA0-5D2045AF7033}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAA3D1CE-587C-44F6-8B7A-9F93DD8B0D13}
+	EndGlobalSection
+EndGlobal

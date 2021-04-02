@@ -31,8 +31,8 @@ namespace Divers_Hotel.Data
             // Room => RoomType  one To one
             builder.Entity<Room>()
               .HasOne(g => g.RoomType)
-              .WithOne(r => r.Room)
-              .HasForeignKey<Room>(f => f.RoomTypeID);
+              .WithMany(r => r.Rooms)
+              .HasForeignKey(s => s.RoomTypeID);
 
 
         }

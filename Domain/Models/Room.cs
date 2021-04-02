@@ -15,6 +15,6 @@ namespace Domain.Models
         public int MealPlanID { set; get; }
         public Guest Guest { get; set; }
         public RoomType RoomType { set; get; }
-        public MealPlan mealPlan { get; set; }
+        public MealPlan MealPlan { get; set; }
     }
 }

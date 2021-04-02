@@ -21,9 +21,11 @@ namespace Domain.Models
         [Required]
         [Phone]
         public string Phone { get; set; }
+        public int AdultsNumber { get; set; }
+        public int ChildrenNumber { get; set; }
 
         public List<Room> Rooms { get; set; }
-        public FamilyMembers FamilyMember { get; set; }
+      
 
 
     }

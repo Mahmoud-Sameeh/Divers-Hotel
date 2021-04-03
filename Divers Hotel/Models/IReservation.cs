@@ -14,5 +14,6 @@ namespace Divers_Hotel.Models
         void Update(T t);
         List<MealPlan> GetAllMealTypeList();
         List<RoomType> GetRoomTypeNumList();
+        double GetReservationTotal(DateTime CheckInDate, DateTime CheckOutDate, int NumberOfGuests, int RoomType, int MealPlane);
     }
 }

@@ -69,9 +69,9 @@ namespace Divers_Hotel.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GuestID"] = new SelectList(_context.Guests, "Id", "Email", room.GuestID);
-            ViewData["MealPlanID"] = new SelectList(_context.MealPlans, "Id", "Id", room.MealPlanID);
-            ViewData["RoomTypeID"] = new SelectList(_context.RoomTypes, "Id", "Descrption", room.RoomTypeID);
+            ViewData["GuestID"] = new SelectList(_context.Guests.ToList(), "Id", "Name", room.GuestID);
+            ViewData["MealPlanID"] = new SelectList(_context.MealPlans.ToList(), "Id", "MealType", room.MealPlanID);
+            ViewData["RoomTypeID"] = new SelectList(_context.RoomTypes.ToList(), "Id", "TypeName", room.RoomTypeID);
             return View(room);
         }
 
@@ -88,7 +88,7 @@ namespace Divers_Hotel.Controllers
             {
                 return NotFound();
             }
-            ViewData["GuestID"] = new SelectList(_context.Guests, "Id", "Name", room.GuestID);
+            ViewData["GuestID"] = new SelectList(_context.Guests.ToList(), "Id", "Name", room.GuestID);
             ViewData["MealPlanID"] = new SelectList(_context.MealPlans.ToList(), "Id", "MealType", room.MealPlanID);
             ViewData["RoomTypeID"] = new SelectList(_context.RoomTypes.ToList(), "Id", "TypeName", room.RoomTypeID);
             return View(room);
@@ -126,9 +126,9 @@ namespace Divers_Hotel.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GuestID"] = new SelectList(_context.Guests, "Id", "Email", room.GuestID);
-            ViewData["MealPlanID"] = new SelectList(_context.MealPlans, "Id", "Id", room.MealPlanID);
-            ViewData["RoomTypeID"] = new SelectList(_context.RoomTypes, "Id", "Descrption", room.RoomTypeID);
+            ViewData["GuestID"] = new SelectList(_context.Guests.ToList(), "Id", "Name", room.GuestID);
+            ViewData["MealPlanID"] = new SelectList(_context.MealPlans.ToList(), "Id", "MealType", room.MealPlanID);
+            ViewData["RoomTypeID"] = new SelectList(_context.RoomTypes.ToList(), "Id", "TypeName", room.RoomTypeID);
             return View(room);
         }
 

@@ -40,6 +40,13 @@ namespace Divers_Hotel.Controllers
             {
                 ViewBag.mealplans = db.GetAllMealTypeList();
                 ViewBag.RoomTypes = db.GetRoomTypeNumList();
+               ViewBag.price= db.GetReservationTotal(
+                    reservation.From,
+                    reservation.To,
+                    reservation.AdultsNumber + reservation.ChildrenNumber,
+                    reservation.RoomTypeNum,
+                    reservation.MealPlan
+                    );
                 db.Add(reservation);
                 TempData["Reservation"] = true;
 
@@ -51,13 +58,13 @@ namespace Divers_Hotel.Controllers
             }
             return RedirectToAction("index"); 
         }
-        public ActionResult RoomDetails(int adults,int children)
+        public ActionResult GetReservationTotal()
         {
            
             return View();
         }
         // GET: DiversHotelController/Create
-        public ActionResult Create()
+        public ActionResult GetReservationTotal(DateTime CheckInDate, DateTime CheckOutDate, int NumberOfGuests, int RoomType, int MealPlane)
         {
             return View();
         }

@@ -4,13 +4,14 @@
     <br />
     <br />
     @{
-        if (TempData["Reservation"] != null)
-        {
-            <div class="alert alert-dismissible alert-success">
+            if (TempData["Reservation"] != null)
+            { 
+                <div class="alert alert-dismissible alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <h4 class="alert-heading">Notes</h4>
                 <p class="mb-0">Your Reservation has been made.</p>
                 <p class="mb-0">We wish you to enjoy your vacation with us.</p>
+                <p class="mb-0">Total is  </p>
             </div>
 
         }

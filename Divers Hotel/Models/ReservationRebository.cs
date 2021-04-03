@@ -66,6 +66,14 @@ namespace Divers_Hotel.Models
             throw new NotImplementedException();
         }
 
-      
+        public double GetReservationTotal(DateTime CheckInDate, DateTime CheckOutDate, int NumberOfGuests, int RoomType, int MealPlane)
+        {
+            var diff = (CheckOutDate - CheckInDate).TotalDays;//double
+                var priceperroom = _db.RoomTypes.FirstOrDefault(z => z.Id == RoomType).Price;
+                var priceperMeal = _db.MealPlans.FirstOrDefault(z => z.Id == MealPlane).LowSeasonPrice;
+            var rooms =Math.Ceiling((double)NumberOfGuests /2);
+            var sum = (rooms * priceperMeal) + (rooms * priceperroom);
+            return (int)sum;
+        }
     }
 }

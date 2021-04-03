@@ -1,4 +1,6 @@
 using Divers_Hotel.Data;
+using Divers_Hotel.Models;
+using Domain.Models.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,10 +33,11 @@ namespace Divers_Hotel
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddScoped<IReservation<Reservation>, ReservationRebository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

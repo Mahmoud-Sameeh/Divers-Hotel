@@ -10,7 +10,7 @@ namespace Domain.Models
         public string MealType { get; set; }
         public int LowSeasonPrice { get; set; }
         public int HighSeasonPrice { get; set; }
-        public Room Room { get; set; }
+        public List<Room> Rooms { get; set; }
 
     }
 }

@@ -3,7 +3,18 @@
     <br />
     <br />
     <br />
+    @{
+        if (TempData["Reservation"] != null)
+        {
+            <div class="alert alert-dismissible alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4 class="alert-heading">Notes</h4>
+                <p class="mb-0">Your Reservation has been made.</p>
+                <p class="mb-0">We wish you to enjoy your vacation with us.</p>
+            </div>
 
+        }
+    }
     <div class="text-center">
         <h1 class="display-4">Reserve Your Vacation .</h1>
         <h1 class="display-4">Enjoy With Us</h1>
@@ -31,9 +42,9 @@
                     </div>
                 </a>
             </div>
-        </div> 
+        </div>
         <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center" >
+            <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
                 <img style"height: 10em; width: 100%;" src="https://static.barcelo.com/content/dam/bhg/master/es/hoteles/dominican-republic/punta-cana-bavaro/barcelo-bavaro-beach/main-photos/hotel/BBAVB_BEA_21.jpg" alt="image" class="img-responsive">
                 <a href="#">
                     <div class="tm-green-gradient-bg tm-city-price-container">

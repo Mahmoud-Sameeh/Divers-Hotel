@@ -1,197 +1,133 @@
 ﻿@model Domain.Models.ViewModels.Reservation
+
 @{
     ViewData["Title"] = "Reservation";
 }
+<br />
+<br />
+<br />
+<br />
+<h2>Reservation</h2>
 
-<div class="container">
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <div class="tm-home-box-1">
-        <ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
-            <li role="presentation" class="active">
-                <a style="display: contents;" href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel Reservation</a>
-            </li>
-
-        </ul>
-        
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="hotel">
-                <div class="container">
-                    <form method="post" class="hotel-search-form" asp-action="Reservation" asp-controller="divershotel">
-                        <div class="row">
-                            <div class="col" id="colone">
-                                <div class="tm-form-inner">
-
-                                    <div class="form-group">
-                                        <label asp-for="Name"></label>
-                                        <input asp-for="Name" class="form-control" />
-                                        <span asp-validation-for="Name" class="text-danger"></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label asp-for="SSN"></label>
-                                        <input asp-for="SSN" class="form-control" />
-                                        <span asp-validation-for="SSN" class="text-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label asp-for="Email"></label>
-                                        <input asp-for="Email" class="form-control" />
-                                        <span asp-validation-for="Email" class="text-danger"></span>
-                                    </div><div class="form-group">
-                                        <label asp-for="Phone"></label>
-                                        <input asp-for="Phone" class="form-control" />
-                                        <span asp-validation-for="Phone" class="text-danger"></span>
-                                    </div>
-
-                                </div>
-                                <div style="display:none" class="form-group tm-green-gradient-bg text-center">
-                                    <button type="button" name="submit" id="FirstNextbtn" class="tm-green-btn">Clear</button>
-                                </div>
-
-                            </div>
-                            <div class="col" id="coltwo">
-                                <div class="tm-form-inner">
-
-                                    <div class="form-group">
-                                        <label asp-for="AdultsNumber"></label>
-                                        <input asp-for="AdultsNumber" id="AudltsN"
-                                               onchange="CalcMinimumNumberOfRooms()" class="form-control" />
-                                        <span asp-validation-for="AdultsNumber" class="text-danger"></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label asp-for="ChildrenNumber"></label>
-                                        <input asp-for="ChildrenNumber" id="ChildrenN" class="form-control" />
-                                        <span asp-validation-for="ChildrenNumber" class="text-danger"></span>
-                                    </div>
-                                    <div style="visibility:hidden" class="form-group">
-                                        <label ></label>
-                                        <input  class="form-control" />
-                                        <span class="text-danger"></span>
-
-                                    </div>
-
-                                    <div style="background: steelblue !important;display: flex;align-items: center;justify-content:center;" class="form-group tm-yellow-gradient-bg text-center">
-                                        <button type="button" style="background:steelblue !important;" name="submit" id="SecondNextbtn" class="btn btn-success">Clear</button>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div class="col" id="colthree">
-                                <div class="tm-form-inner">
-
-                                    <div class="form-group">
-                                        <label asp-for="From"></label>
-                                        <input asp-for="From" class="form-control" />
-                                        <span asp-validation-for="From" class="text-danger"></span>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label asp-for="To"></label>
-                                        <input asp-for="To" class="form-control" />
-                                        <span asp-validation-for="To" class="text-danger"></span>
-                                    </div>
-
-                                    <div style="visibility:hidden" class="form-group">
-                                        <label>RoomType</label>
-                                        <input  class="form-control" />
-                                        <span  class="text-danger"></span>
-                                    </div>
+<hr />
+<form asp-action="Reservation">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 
-
-                                    <div style="background: steelblue !important;display: flex;align-items: center;justify-content:center;" class="form-group tm-yellow-gradient-bg text-center">
-                                        <button type="submit" style="background:steelblue !important;" name="submit" id="ThirdNextbtn" class="btn btn-success">Next</button>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-        </div>
-    </div>
-  <div class="Rooms-add container">
+            <div class="form-group">
+                <label asp-for="SSN" class="control-label"></label>
+                <input asp-for="SSN" class="form-control" />
+                <span asp-validation-for="SSN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdultsNumber" class="control-label"></label>
+                <input asp-for="AdultsNumber" class="form-control" />
+                <span asp-validation-for="AdultsNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomTypeNum" class="control-label"></label>
+                <select asp-for="RoomTypeNum" class="form-control" asp-items=@(new SelectList( ViewBag.RoomTypes,"Id","TypeName"))></select>
+                <span asp-validation-for="RoomTypeNum" class="text-danger"></span>
+            </div>
 
-  </div>
-    <br />
-</div>
-<!-- Nav tabs -->
-<br />
-<br />
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="ChildrenNumber" class="control-label"></label>
+                <input asp-for="ChildrenNumber" class="form-control" />
+                <span asp-validation-for="ChildrenNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="From" class="control-label"></label>
+                <input asp-for="From" class="form-control" />
+                <span asp-validation-for="From" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="To" class="control-label"></label>
+                <input asp-for="To" class="form-control" />
+                <span asp-validation-for="To" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomsCount" class="control-label"></label>
+                <input asp-for="RoomsCount" class="form-control" />
+            <div id="mesg"></div>
+                <span asp-validation-for="RoomsCount" class="text-danger"></span>
+            </div>    <div class="form-group">
+                <label asp-for="MealPlan" class="control-label"></label>
+                <select asp-for="MealPlan" class="form-control" asp-items=@(new SelectList( ViewBag.mealplans,"Id","MealType","Id"))></select>
+                <span  asp-validation-for="MealPlan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Note</label>
+                <ul>
+                    <li>Children age shall be between 1-17 (include children less than a year)</li>
+                    <li>Each Room Take <b style="color:darkred">only</b>  2 adults and 2 children  </li>
+                    <li>Minimum Number of Rooms is determined on the later Rules  </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Next</button>
+    </div>
+</form>
+
+
 @section scripts{
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    var x=0;
 
-    <script>
-        $("#FirstNextbtn").click(function () {
-            console.log("sdaadsasd")
-            $("#colone").css("visibility", "hidden")
-        });
-        $("#SecondNextbtn").click(function () {
-            console.log("sdaadsasd")
-            $("#coltwo").css("visibility", "hidden")
-        });
-        function CalcMinimumNumberOfRooms(a, b) {
-            console.log(a, b)
+<script>
+    var AN = 0;
+    var CN = 0;
+    //AdultsNumber
+    //ChildrenNumber
+    $("#AdultsNumber").keyup(function (event) {
+        AN = (isNaN(parseInt(document.getElementById("AdultsNumber").value))) ? 0 : parseInt(document.getElementById("AdultsNumber").value);
+        CN = (isNaN(parseInt(document.getElementById("ChildrenNumber").value))) ? 0 : parseInt(document.getElementById("ChildrenNumber").value);
+        console.log(AN + " " + CN) 
+    });
+    $("#ChildrenNumber").keyup(function (event) {
+        AN = (isNaN(parseInt(document.getElementById("AdultsNumber").value))) ? 0 : parseInt(document.getElementById("AdultsNumber").value);
+        CN = (isNaN(parseInt(document.getElementById("ChildrenNumber").value))) ? 0 : parseInt(document.getElementById("ChildrenNumber").value);
+        console.log(AN + " " + CN)
+      
+    });
 
-        }
-        $("#ThirdNextbtn").click(function () {
-            x = parseInt(document.querySelector("#AudltsN").value) + parseInt(document.querySelector("#ChildrenN").value)
-            console.log(x)
-
-            getRooms(x)
+    $("#RoomsCount").keyup(function (event) {
+            var x = Math.max(AN, CN);
+            console.log("aaaaaa"+" "+x)
+            x = Math.ceil(x);
+            if (document.getElementById("RoomsCount").value < x) {
                
-        });
-/*
-        function getRooms(e) {
-            
-            for (var i = 0; i <  e; i++) {
-                document.getElementsByClassName("Rooms-add")[0].innerHTML += `<div class="row">
-
-                    <div class="col">
-                      <div class="form-group">
-                                        <label >RoomTypeID</label>
-                                        <input data-val="true" data-val-required="The RoomTypeID field is required." 
-                                        id="RoomTypeID" name="RoomTypeID" type="hidden" value=""/>
-                                       <span class="text-danger field-validation-valid" data-valmsg-for="RoomTypeID" data-valmsg-replace="true"></span>
-                                    </div>
-<div class="form-group">
-    <label for="RoomTypeID">RoomTypeID address</label>
-    <input type="text" class="form-control" id="RoomTypeID" aria-describedby="RoomTypeID" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                                        <label asp-for="AdultsNumber">MealPlanID</label>
-                                       <input data-val="true" data-val-required="The MealPlanID field is required." 
-                                        id="MealPlanID" name="MealPlanID" type="hidden" value=""/>
-                     <span class="text-danger field-validation-valid" data-valmsg-for="MealPlanID" data-valmsg-replace="true"></span>
-
-                                    </div>
-
-                    </div>
-
-
-</div>
-<div class="row">
-    <button>Add </button>
-    |<button>Delete </button>
-</div>
-`
+                document.getElementById("RoomsCount").value = x;
+                document.getElementById("mesg").textContent = "Minmum Rooms For You is " + x ;
+               
 
             }
-        }
-        */
-
-    </script>
+            console.log(AN + " " + CN)
+        });
+    
+</script>
 }

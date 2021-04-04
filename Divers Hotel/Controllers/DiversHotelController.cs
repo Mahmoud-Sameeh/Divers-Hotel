@@ -40,13 +40,7 @@ namespace Divers_Hotel.Controllers
             {
                 ViewBag.mealplans = db.GetAllMealTypeList();
                 ViewBag.RoomTypes = db.GetRoomTypeNumList();
-               ViewBag.price= db.GetReservationTotal(
-                    reservation.From,
-                    reservation.To,
-                    reservation.AdultsNumber + reservation.ChildrenNumber,
-                    reservation.RoomTypeNum,
-                    reservation.MealPlan
-                    );
+              
                 db.Add(reservation);
                 TempData["Reservation"] = true;
 
@@ -58,72 +52,22 @@ namespace Divers_Hotel.Controllers
             }
             return RedirectToAction("index"); 
         }
-        public ActionResult GetReservationTotal()
-        {
-           
-            return View();
-        }
+      
         // GET: DiversHotelController/Create
-        public ActionResult GetReservationTotal(DateTime CheckInDate, DateTime CheckOutDate, int NumberOfGuests, int RoomType, int MealPlane)
-        {
-            return View();
-        }
-
-        // POST: DiversHotelController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult GetReservationTotal(TotalReservation t)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+     ViewBag.g=  db.GetReservationTotal(
+                    t.Chechindate,
+                      t.Chechoutdate,
+                       t.NumberOfGuests,
+                       t.RoomType,
+                    t.MealPlane
+                      );
+
+            return View(t);
         }
 
-        // GET: DiversHotelController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: DiversHotelController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: DiversHotelController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: DiversHotelController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
     }
 }

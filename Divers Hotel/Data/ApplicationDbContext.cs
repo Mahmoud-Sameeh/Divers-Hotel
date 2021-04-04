@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Domain.Models.ViewModels;
 
 namespace Divers_Hotel.Data
 {
@@ -40,5 +41,6 @@ namespace Divers_Hotel.Data
         public DbSet<MealPlan> MealPlans { set; get; }
         public DbSet<Room> Rooms { set; get; }
         public DbSet<RoomType> RoomTypes { set; get; }
+        public DbSet<Domain.Models.ViewModels.TotalReservation> TotalReservation { get; set; }
     }
 }

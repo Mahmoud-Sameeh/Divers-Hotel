@@ -115,19 +115,22 @@
       
     });
 
-    $("#RoomsCount").keyup(function (event) {
-            var x = Math.max(AN, CN);
-            console.log("aaaaaa"+" "+x)
-            x = Math.ceil(x);
-            if (document.getElementById("RoomsCount").value < x) {
-               
-                document.getElementById("RoomsCount").value = x;
-                document.getElementById("mesg").textContent = "Minmum Rooms For You is " + x ;
-               
+    $("#To").click(function (event) {
+        var diff = Date.parse(document.getElementById("From").value) - Date.parse(document.getElementById("To").value) 
 
-            }
-            console.log(AN + " " + CN)
-        });
+        if (diff < 0) {
+            document.querySelector("#more > div > div > form > div.form-group > button").disabled = true;
+            console.log(diff)
+            console.log("disabled")
+        }
+        else {
+            document.querySelector("#more > div > div > form > div.form-group > button").disabled = false;
+            console.log("active")
+            console.log(diff)
+
+        }
+    });
+   
     
 </script>
 }

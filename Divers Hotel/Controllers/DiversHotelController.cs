@@ -43,7 +43,7 @@ namespace Divers_Hotel.Controllers
               
                 db.Add(reservation);
                 TempData["Reservation"] = true;
-
+                return RedirectToAction("GetReservationTotal",reservation);
             }
             else
             {
@@ -52,20 +52,19 @@ namespace Divers_Hotel.Controllers
             }
             return RedirectToAction("index"); 
         }
-      
-        // GET: DiversHotelController/Create
-        [HttpPost]
-        public ActionResult GetReservationTotal(TotalReservation t)
-        {
-     ViewBag.g=  db.GetReservationTotal(
-                    t.Chechindate,
-                      t.Chechoutdate,
-                       t.NumberOfGuests,
-                       t.RoomType,
-                    t.MealPlane
-                      );
 
-            return View(t);
+        // GET: DiversHotelController/Create
+        public ActionResult GetReservationTotal( )
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetReservationTotal(Reservation reservation)
+        {
+            ViewBag.g = db.GetReservationTotal(reservation.From, reservation.To, reservation.AdultsNumber + reservation.ChildrenNumber, reservation.RoomTypeNum, reservation.MealPlan);
+
+            return View(reservation);
         }
 
        

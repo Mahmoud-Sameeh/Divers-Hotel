@@ -66,7 +66,7 @@ namespace Divers_Hotel.Models
             throw new NotImplementedException();
         }
 
-        public double GetReservationTotal(DateTime CheckInDate, DateTime CheckOutDate, int NumberOfGuests, int RoomType, int MealPlane)
+        public double GetReservationTotal(DateTime CheckInDate, DateTime CheckOutDate, int NumberOfGuests=5, int RoomType=2, int MealPlane=2)
         {
             var diff = (CheckOutDate - CheckInDate).TotalDays;//double
                 var priceperroom = _db.RoomTypes.FirstOrDefault(z => z.Id == RoomType).Price;

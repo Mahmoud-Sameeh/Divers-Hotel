@@ -89,8 +89,9 @@
 
 
     </div>
+    <div class="row" id="price"></div>
     <div class="form-group">
-        <button type="button" id="asdss" class="btn btn-success">Next</button>
+        <button type="submit" id="asdss" class="btn btn-success">Next</button>
     </div>
 </form>
 
@@ -132,19 +133,28 @@
     });
     $("#asdss").click(function (event) {
 
-        var t = {
+        var totalreservation = {
            
             Chechindate: Date.parse( document.getElementById("From").value), 
             Chechoutdate: Date.parse(document.getElementById("To").value),
-            Id: "5",
+            Id: 5,
             NumberOfGuests:5,// parseInt(document.getElementById("AdultsNumber").value) + parseInt(document.getElementById("AdultsNumber").value),
             RoomType:4,// parseInt(document.getElementById("RoomTypeNum").value),
             MealPlane:2 //parseInt( document.getElementById("MealPlan").value)
         }
+
+        console.log(totalreservation)
+
+
+
+
+
+
+
         $.ajax({
             url: location.origin + "/DiversHotel/GetReservationTotal",
             method: "Post",
-            data: '{ t: ' + JSON.stringify(t) + '}',
+            data: '{ TotalReservation: ' + JSON.stringify(TotalReservation) + '}',
             dataType: `JSON`,
             contentType: "application/json; charset=utf-8",
             success: function (res) {
